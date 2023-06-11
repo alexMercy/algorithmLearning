@@ -4,7 +4,7 @@ const arr =
    //  [1,2,4,6,8,10,15,18];
 let count = 0;
 
-console.log(qSort(arr));
+console.log(qSort(arr), count);
 
 /**
  * O(n^2) по времени, О(1) по памяти
@@ -26,15 +26,18 @@ function bubbleSort(arr) {
 }
 
 /**
- * O(nlog2n) по времени, О(n) по памяти
+ * O(nlog2n) по времени, О(n) по памяти.
+ * O(n^2) в худшем случае, пример: [7,5,3,1,2,4,6];
  * @param arr
  * @returns {*[]|*|*[]}
  */
 function qSort(arr) {
-    const middle = Math.floor(arr.length/2);
+    const pivot = 1;
     const less = [];
     const greater = [];
-    arr.forEach((item, index) => {index!== middle && (item <= arr[middle] ? less.push(item) : greater.push(item))})
+    arr.forEach((item, index) => {
+        count++;
+        index!== pivot && (item <= arr[pivot] ? less.push(item) : greater.push(item))})
     if (arr.length <= 1) return arr;
-    return [...qSort(less), arr[middle], ...qSort(greater)];
+    return [...qSort(less), arr[pivot], ...qSort(greater)];
 }
