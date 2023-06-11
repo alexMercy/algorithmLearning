@@ -10,6 +10,8 @@ count = 0;
 console.log(linearSearch(8));
 count = 0;
 
+//Arr добавлен в аргументы для создания чистой функции
+//O(log2n) по времени, O(1) по памяти. Работает только в отсортированном массиве.
 function binaryRecursionSearch(item, arr, startI=0, endI=arr.length) {
     if (startI >= endI) return `Not found \ncount    = ${count}`;
     count++;
@@ -24,7 +26,9 @@ function binaryRecursionSearch(item, arr, startI=0, endI=arr.length) {
     }
 }
 
-function binarySearch(item) { //O(log2n) по времени, O(1) по памяти. Работает только в отсотированном массиве
+
+//O(log2n) по времени, O(1) по памяти. Работает только в отсортированном массиве.
+function binarySearch(item) {
 
     let startI = 0;
     let endI = arr.length;
@@ -47,7 +51,8 @@ function binarySearch(item) { //O(log2n) по времени, O(1) по памя
     return `Not found \ncount    = ${count}`
 }
 
-function linearSearch(item) { //O(n) по времени, O(1) по памяти
+//O(n) по времени, O(1) по памяти
+function linearSearch(item) {
     for (let i = 0; i < arr.length; i++) {
         count++;
         if (arr[i] === item) {
