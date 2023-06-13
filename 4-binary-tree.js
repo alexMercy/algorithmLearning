@@ -4,7 +4,6 @@ class Node {
         this.left = null;
         this.right = null;
     }
-
     add(value) {
         if (this.nodeValue === null) {
             this.nodeValue = value;
@@ -20,22 +19,16 @@ class Node {
                 : this.right.add(value);
         }
     }
-
     print() {
-        const result = recursion(this);
-
-        function recursion(tree){
-            const left = tree.left ? recursion(tree.left) : null
-            const right = tree.right ? recursion(tree.right) : null
-            return {
-                value: tree.nodeValue,
-                left,
-                right,
-            }
-        }
-
-        return console.log(result);
+        console.log(getTree(this));
     }
+}
+
+function getTree(tree){
+    const value = tree.nodeValue;
+    const left = tree.left ? getTree(tree.left) : null
+    const right = tree.right ? getTree(tree.right) : null
+    return {value, left, right,};
 }
 
 function binaryRecursionSearchTree(item, tree) {
